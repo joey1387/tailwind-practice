@@ -1,0 +1,163 @@
+QUESTION PRACTICE 1
+ <!-- THE HTML STRUCTURE -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Beginner level Questions</title>
+</head>
+<body>
+  <style>
+
+.click{
+    margin-bottom: 50px;
+  }  
+ .first-button{
+margin-top: 20px;
+margin-bottom: 50PX;
+
+    }
+.red-button, .blue-button, .green-button{
+  background-color: red;
+  padding: 10px;
+  color: white;
+  border: none;
+}
+.blue-button{
+  background-color: blue;
+}
+.green-button{
+  background-color: green;
+}
+
+.user-input{
+  border: 2px solid black;
+  margin-top: 20px;
+  padding: 7px;
+  margin-bottom: 50px;
+}
+
+  </style>
+
+  <!-- QUESTION 1 -->
+    <h1 id="myHeading">Hello Joey</h1>
+
+    <button id="myButton" class="click">Click Me</button>
+
+            <!-- onclick method -->
+    
+    <!-- <button onclick="changeText()">Click Me</button> -->
+
+<br>
+    <!-- QUESTION 2 -->
+     QUESTION PRACTICE 2
+     
+     <div class="first-button">
+     <button id="redBtn"    class="red-button">Stop</button>
+     <button id="blueBtn"   class="blue-button">Ready</button>
+     <button id="greenBtn"  class="green-button">Go</button>
+
+     </div>
+
+     <!-- QUESTION 3 -->
+       QUESTION PRACTICE 3
+
+      <br>
+      <input type="text" class="user-input"  id="userInput" placeholder="Username or Email ">
+      <p id="displayText"></p>
+
+      <!-- QUESTION 4 -->
+       QUESTION PRACTICE 4
+       <h2 id="count">0</h2>
+
+  <button id="increase">Increase</button>
+  <button id="decrease">Decrease</button>
+  <button id="reset">Reset</button>
+
+
+
+     
+
+<script>
+
+// QUESTION 1
+    // locate the heading
+    const heading = document.getElementById("myHeading");
+
+    // locate the button
+    const button = document.getElementById("myButton");
+
+    // addEventListener method
+    button.addEventListener("click",() => {
+
+    // Changing the heading text
+    heading.textContent = "Joey is home!";
+
+    });
+
+    // // onclick method
+    // function changeText() {
+    // document.getElementById("myHeading").textContent = "Joey is home!";
+//}
+
+ 
+
+// QUESTION 2
+//addEventListener background color manipulation.
+   document.getElementById("redBtn").addEventListener("click",() => {
+    document.body.style.backgroundColor = "red";
+  });
+
+  document.getElementById("blueBtn").addEventListener("click",() => {
+    document.body.style.backgroundColor = "blue";
+  });
+
+  document.getElementById("greenBtn").addEventListener("click",() => {
+    document.body.style.backgroundColor = "green";
+  });
+
+
+//QUESTION 3
+ //addEventListner
+  const input = document.getElementById("userInput");
+    const display = document.getElementById("displayText");
+
+   
+    input.addEventListener("input",() => {
+      
+      display.textContent = input.value;
+    });
+
+//QUESTION 4
+//addEventListner
+    let count = 0;
+
+// Get elements from HTML
+const countDisplay = document.getElementById("count");
+const increaseBtn = document.getElementById("increase");
+const decreaseBtn = document.getElementById("decrease");
+const resetBtn = document.getElementById("reset");
+
+// The Increase button
+increaseBtn.addEventListener("click", () => {
+  count = count + 1;
+  countDisplay.textContent = count;
+});
+
+// The Decrease button
+decreaseBtn.addEventListener("click",() => {
+  count = count - 1;
+  countDisplay.textContent = count;
+});
+
+//The Reset button
+resetBtn.addEventListener("click",() => {
+  count = 0;
+  countDisplay.textContent = count;
+});
+
+
+
+</script>
+
+</body>
+</html>
