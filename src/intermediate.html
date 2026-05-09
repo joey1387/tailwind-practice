@@ -1,0 +1,145 @@
+QUESTION PRACTICE 1
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intermediate level Questions</title>
+  <link href="./output.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Question 1 -->
+  <br>
+  <textarea name="character-count" id="text-input" placeholder="type someting..." class="mt-5 border-2"></textarea>
+  <p id="count-input" class="mb-10">0</p>
+
+  QUESTION PRACTICE 2
+  <!-- Question 2 -->
+  <br>
+  <input type="password" name="password" id="password-input" placeholder="Password" class="border-2 mt-5">
+  <p id="display-strength" class="mb-10">Password strength:  <span id="strength"> </span> </p>
+
+  QUESTION PRACTICE 3
+  <!-- Question 3 -->
+   <br>
+   <h3>Todo list</h3>
+
+   <input type="text" id="todo-input" placeholder="Todo Task" class="border-2 mt-5 "> 
+   <button id="add-btn" class="bg-amber-950 p-0.5 mb-10">Add Task</button>
+
+   <ol  id="todo-list" class="text-blue-700"></ol>
+
+   QUESTION PRACTICE 4
+   <!-- Question 4 -->
+    <br>
+    <h4>Image Preview</h4>
+    <input type="text" id="image-input" placeholder="Enter image URL" class="border-3 mt-5">
+
+    <br><br>
+
+    <img id="preview" width="300" />
+
+  <script>
+
+    //QUESTION 1
+
+    const countCharacter = document.getElementById("text-input");
+    const displayCount = document.getElementById("count-input");
+
+    countCharacter.addEventListener("input", (e) => {
+      const length = e.target.value.length
+      console.log(length)
+      displayCount.textContent = length
+
+      if (length > 20) {
+        displayCount.style.color = "red"
+        countCharacter.style.color = "red"
+      }
+      else {
+        displayCount.style.color = "black"
+        countCharacter.style.color = "black"
+      }
+    })
+
+    //QUESTION 2
+    const passwordInput = document.getElementById("password-input");
+    const Strength = document.getElementById("strength")
+
+
+    passwordInput.addEventListener("input", (e) => {
+      const password = e.target.value
+      console.log(password)
+      if (password.length === 0) {
+        Strength.textContent = ""
+      }
+      else if (password.length < 8) {
+        Strength.textContent = "Weak"
+        Strength.style.color = "red"
+
+      }
+      else if (password.length < 12) {
+        Strength.textContent = "Medium"
+        Strength.style.color = "blue"
+      }
+      else {
+        Strength.textContent = "Strong"
+        Strength.style.color = "Green"
+      }
+    })
+
+    //  QUESTION 3
+  const input = document.getElementById("todo-input");
+  const button = document.getElementById("add-btn");
+  const itemList = document.getElementById("todo-list");
+
+  button.addEventListener("click", () =>{
+    const taskText = input.value
+    if (taskText === "") return;
+
+    const li = document.createElement("li");
+    li.textContent = taskText;
+
+    li.addEventListener("click", () => {
+      li.style.textDecoration = "line-through";
+    })
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+
+    deleteBtn.addEventListener("click", (e) => {
+      e.stopPropagation ();
+      itemList.removeChild(li);
+    })
+
+    li.appendChild(deleteBtn);
+
+    itemList.appendChild(li);
+
+    input.value = "";
+  })
+
+  //QUESTION 4
+  const imageInput = document.getElementById("image-input");
+  const image = document.getElementById("preview");
+
+  imageInput.addEventListener("input", () => {
+    if(imageInput.value === ""){
+      image.src = "";
+    }
+    else{
+       image.src = imageInput.value;
+    }
+    console.log(imageInput.value)
+   
+  })
+
+
+
+  </script>
+
+</body>
+
+</html>
