@@ -1,0 +1,240 @@
+QUESTION PRACTICE 1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced-Beginner Level Questions</title>
+   <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+  <style>
+    .question{
+      cursor: pointer;
+      padding: 10px;
+      background: #f2f2f2;
+      margin-top: 10px;
+      
+    }
+    .answer{
+      display: none;
+      margin-top: 5px;
+      color: gray;
+    }
+    .tab-btn {
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      background: lightgray;
+      margin-right: 5px;
+    }
+
+    .active {
+      background: darkblue;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .show {
+      display: block;
+    }
+
+  </style>
+  
+<!-- Question 1 -->
+ <h2>FAQ Section</h2>
+ <div class="faq-item">
+  <div class="question" >What is SkillvaNest Africa?</div>
+  <div class="answer" >SkillvaNest is an online learning platform for digital skills.</div>
+ </div>
+
+ <div class="faq-item">
+  <div class="question" >Do i need a prior tech experience to register?</div>
+  <div class="answer" >No,beginners are much welcome.</div>
+ </div>
+
+ <div class="faq-item">
+  <div class="question" >Are the courses free?</div>
+  <div class="answer">No, they are not, but there's a discount of 30% for Secondary school students, 20% discount for University students, 10% discount for fresh graduates and corps members.</div>
+ </div>
+
+<br>
+
+ QUESTION PRACTICE 2
+ <!-- Question 2 -->
+  <br>
+   <button class="tab-btn active" data-tab="home">Home</button>
+  <button class="tab-btn" data-tab="about">About</button>
+  <button class="tab-btn" data-tab="contact">Contact</button>
+
+ 
+  <div id="home" class="tab-content show">
+    <h3>Home</h3>
+    <p>Transform your skills with Africa's E - learning platform</p>
+    <p>Affordable E-learning excellence</p>
+    <p>Master AI, Professional and softskills, Wellness and more...</p>
+  </div>
+
+  <div id="about" class="tab-content">
+    <h3>About</h3>
+    <p>OUR STORY</p>
+    <p> Embark on a journey with us: 
+    <p>Uncover the tale of SkillvaNest Africa - A passion-Driven 
+    <p> Odyssey rooted in dedication to learning, Empowerment,</p>
+    <p> and the Remarkable stories of our community</p>
+  </div>
+
+  <div id="contact" class="tab-content">
+    <h3>Contact us</h3>
+    <p>Reach out and connect with us today!</p>
+    <p>Email:skillvaNestafrica.com</p>
+    <p>Phone: +2348157475527</p>
+    <p>Location: Lagos, Nigeria.</p>
+  </div>
+<br>
+
+  QUESTION PRACTICE 3
+  <!-- Question 3 -->
+
+
+  <h2 class="text-lg font-bold mb-10 mt-5 ">Simple Calculator</h2>
+
+ 
+  <input 
+    type="number" 
+    id="num1" 
+    placeholder="Enter first number"
+    class="mb-10 p-1 border"
+  >
+
+  <input 
+    type="number" 
+    id="num2" 
+    placeholder="Enter second number"
+    class=" mb-10 p-1 border"
+  >
+   <br>
+
+ 
+  <button  onclick="calculate('add')" class="border-2 p-5 bg-red-500 text-black rounded hover:bg-blue-600 transition">Add</button>
+  <button  onclick="calculate('subtract')"  class="border-2 p-5 bg-red-500 text-black rounded hover:bg-blue-600 transition">Subtract</button>
+  <button  onclick="calculate('multiply')" class="border-2 p-5 bg-red-500 text-black rounded hover:bg-blue-600 transition" >Multiply</button>
+  <button  onclick="calculate('divide')"  class="border-2 p-5 bg-red-500 text-black rounded hover:bg-blue-600 transition mb-10">Division</button>
+  
+  <p class="font-semibold mb-10">
+    Result: <span id="result">0</span>
+  </p>
+
+</div>
+
+QUESTION PRACTICE 4
+<!-- Question 4 -->
+    <div class="bg-white p-6 rounded-xl shadow-md max-w-md mx-auto">
+    
+    <h2 class="text-xl font-bold mb-4">Random Quote Generator</h2>
+
+    <!-- Quote Display -->
+    <p id="quote" class="mb-4 text-gray-700">
+      Click the button to see a quote
+    </p>
+
+    <!-- Button -->
+    <button id="btn" class="bg-red-500 text-white px-4 py-2 rounded">
+      New Quote
+    </button>
+
+  </div>
+
+
+ <script>
+// QUESTION 1
+const questions = document.querySelectorAll(".question")
+questions.forEach((q) => {
+  q.addEventListener("click", () => {
+    const answer = q.nextElementSibling;
+
+    if(answer.style.display === "block"){
+      answer.style.display = "none";
+    } else{
+      answer.style.display = "block"
+    }
+  })
+})
+
+//QUESTION 2
+const buttons = document.querySelectorAll(".tab-btn");
+const contents = document.querySelectorAll(".tab-content");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+
+    // Remove active from all buttons
+    buttons.forEach(btn => btn.classList.remove("active"));
+
+    // Hide all content
+    contents.forEach(content => content.classList.remove("show"));
+
+    // Add active to clicked button
+    button.classList.add("active");
+
+    // Show the correct content
+    const tabId = button.getAttribute("data-tab");
+    document.getElementById(tabId).classList.add("show");
+
+  });
+});
+
+//QUESTION 3
+ function calculate(operation) {
+      const num1 = Number(document.getElementById("num1").value);
+      const num2 = Number(document.getElementById("num2").value);
+
+      let result = 0;
+
+      if (operation === "add") {
+        result = num1 + num2;
+      } 
+      else if (operation === "subtract") {
+        result = num1 - num2;
+      } 
+      else if (operation === "multiply") {
+        result = num1 * num2;
+      } 
+      else if (operation === "divide") {
+        if (num2 === 0) {
+          result = "Cannot divide by 0";
+        } else {
+          result = num1 / num2;
+        }
+      }
+
+      document.getElementById("result").textContent = result;
+    }
+  
+    //QUESTION 4
+      const quotes = [
+      "Believe in yourself.",
+      "Stay consistent.",
+      "Hard work pays off.",
+      "Never give up.",
+      "Success is coming."
+    ];
+
+    const button = document.getElementById("btn");
+    const quoteText = document.getElementById("quote");
+
+    button.addEventListener("click", function () {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteText.textContent = quotes[randomIndex];
+    });
+
+
+
+ </script>
+
+</body>
+</html>
